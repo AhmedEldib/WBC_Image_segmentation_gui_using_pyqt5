@@ -15,7 +15,7 @@ from sklearn.preprocessing import LabelBinarizer
 import matplotlib.pyplot as plt
 import os
 
-def svm_problem3(image):
+def svm_class(image):
 
     x = []
     y = []

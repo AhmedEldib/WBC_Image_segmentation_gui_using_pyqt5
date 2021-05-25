@@ -7,7 +7,7 @@ from gui import Ui_MainWindow
 from Cmeans import CMeans 
 from shallow_network_segmentation import SNN
 
-from SVM import svm_problem3
+from SVM import svm_class
 
 import numpy as np
 import pandas as pd
@@ -128,7 +128,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
                     
     def svm (self):
         if self.svmImage is not None:
-            imagesegmented, report =svm_problem3(self.svmImage)
+            imagesegmented, report =svm_class(self.svmImage)
             imagesegmented = np.rot90(imagesegmented, 3)
             self.plot(self.ui.graphicsView_4, imagesegmented)
             self.ui.textBrowser_2.setText("Test accuracy of the SVM during training was: \n \n " + str(report))            
@@ -146,8 +146,6 @@ class ApplicationWindow(QtWidgets.QMainWindow):
     def get_clusters(self,C=2):
         pixel_values = self.cMeansImage.reshape((-1, 3))
         pixel_values = np.float32(pixel_values)
-
-        #QtCore.QCoreApplication.processEvents()
 
         model = CMeans(C, max_iters=10)  
         y_pred = model.predict(pixel_values) 
