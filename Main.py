@@ -39,6 +39,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         self.imported_image = None
         self.snnImage = None
         self.svmImage = None
+        self.cMeansImage = None
 
         self.no_clusters = None
         self.cluster = None
@@ -65,7 +66,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
     def Slider(self):
         sliderValue = self.ui.classes_slider.value()
 
-        if self.imported_image is not None:
+        if self.cMeansImage is not None:
             self.get_clusters(sliderValue)            
 
         else:
