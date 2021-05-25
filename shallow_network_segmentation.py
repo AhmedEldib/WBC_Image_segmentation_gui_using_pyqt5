@@ -28,8 +28,6 @@ def SNN (image):
         im = io.imread(filename)
         im = np.round((resize(im, (36, 36), anti_aliasing=True, preserve_range=True))).astype(int)
 
-        print(filename)
-
         if im.shape[2] == 4:
             im = np.delete(im, 3, 2)
 
@@ -44,8 +42,6 @@ def SNN (image):
         elif filename.split("_")[-1].split(".")[0] == '3':
             x.append(im)
             y.append(3)
-
-    print(x)
 
     X_train = np.array(x)
     labels = np.array(y)
