@@ -31,15 +31,15 @@ def svm_class(image):
         if im.shape[2] == 4:
             im = np.delete(im, 3, 2)
 
-        if filename.split("_")[1].split(".")[0] == '1':
+        if filename.split("_")[-1].split(".")[0] == '1':
             x.append(im)
             y.append(1)
 
-        elif filename.split("_")[1].split(".")[0] == '2':
+        elif filename.split("_")[-1].split(".")[0] == '2':
             x.append(im)
             y.append(2)
 
-        elif filename.split("_")[1].split(".")[0] == '3':
+        elif filename.split("_")[-1].split(".")[0] == '3':
             x.append(im)
             y.append(3)
 
